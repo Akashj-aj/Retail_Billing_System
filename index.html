@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopSmart - Simple Retail Billing System</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Background Animation -->
+  <div class="background-animation">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+
+  <header>
+    <h1>ShopSmart</h1>
+    <p style="text-align: center; margin-top: -10px; font-size: 1.2rem; color: var(--gray);">
+      Simple Retail Billing System
+    </p>
+  </header>
+
+  <main>
+    <section class="hero-section scale-in">
+      <h2>Fast & Easy Billing for Your Store</h2>
+      <p>
+        ShopSmart helps you manage products, bill customers, and track sales with ease.<br>
+        <span style="color: var(--primary); font-weight: 500;">No hassle. Just billing.</span>
+      </p>
+      <div class="hero-buttons">
+        <a href="login.html" class="primary-btn">Login</a>
+        <a href="signup.html" class="secondary-btn">Sign Up</a>
+      </div>
+    </section>
+
+    <div class="features" style="margin-top: 40px;">
+      <div class="feature-card">
+        <div class="feature-icon">🛒</div>
+        <h3>Quick Billing</h3>
+        <p>Generate bills instantly and keep your checkout lines moving.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h3>Product Management</h3>
+        <p>Add, edit, and organize your products with just a few clicks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📈</div>
+        <h3>Sales Tracking</h3>
+        <p>View your sales history and keep track of your business growth.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ShopSmart - All Rights Reserved</p>
+  </footer>
+
+  <div class="loading-container" id="global-loading">
+    <div class="spinner"></div>
+  </div>
+
+  <script>
+    // Show spinner immediately
+    document.getElementById('global-loading').classList.add('show');
+    // Hide spinner when page is fully loaded
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.getElementById('global-loading').classList.remove('show');
+      }, 400); // Minimum visible time for smoothness
+    });
+
+    // Show spinner on navigation
+    document.querySelectorAll('a[href]').forEach(link => {
+      // Only for internal links
+      link.addEventListener('click', function(e) {
+        const href = link.getAttribute('href');
+        if (href && !href.startsWith('http') && !href.startsWith('#') && !link.hasAttribute('download') && !link.target) {
+          document.getElementById('global-loading').classList.add('show');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

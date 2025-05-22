@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - ShopSmart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="cart.html">Cart</a>
+      <a href="#" id="logout-button-nav">Logout</a>
+    </nav>
+
+    <!-- Background Animation -->
+    <div class="background-animation">
+      <ul class="circles">
+        <li></li><li></li><li></li><li></li><li></li>
+        <li></li><li></li><li></li><li></li><li></li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="top-bar">
+        <h1>Product Listing</h1>
+      </div>
+      <div class="search-filter-container">
+        <input type="text" id="search-input" placeholder="Search products..." />
+        <select id="category-select">
+            <option value="">All Categories</option>
+        </select>
+        <button onclick="displayProducts()">Search</button>
+      </div>
+      <div id="products-container"></div>
+      <button id="go-to-cart-btn" onclick="window.location.href='cart.html'">Go to Cart</button>
+    </div>
+    <div class="loading-container" id="global-loading">
+      <div class="spinner"></div>
+    </div>
+    <script src="js/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="js/supabase.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

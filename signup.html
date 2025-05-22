@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ShopSmart</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Background Animation -->
+  <div class="background-animation">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+  <div class="container center">
+    <div class="auth-container scale-in">
+      <h2>Sign Up for ShopSmart</h2>
+      <form id="signup-form">
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Enter your email" autocomplete="email">
+        </div>
+        <div style="position: relative;">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required placeholder="Enter your password" autocomplete="current-password">
+          <span class="toggle-password" onclick="togglePassword()" title="Show/Hide Password"></span>
+        </div>
+        <button type="submit">Sign Up</button>
+      </form>
+      <div id="error-message" style="color: var(--danger); text-align: center; margin-top: 1rem;"></div>
+      <p style="text-align: center; margin-top: 1.5rem;">
+        Already have an account? <a href="login.html" style="color: var(--primary);">Login here</a>
+      </p>
+      <p style="text-align: center; margin-top: 0.5rem;">
+        <a href="index.html" style="color: var(--gray); font-size: 0.9rem;">Back to home</a>
+      </p>
+    </div>
+  </div>
+  <!-- Loading Spinner -->
+  <div class="loading-container" id="global-loading">
+    <div class="spinner"></div>
+  </div>
+  <script src="js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/signup.js"></script>
+ 
+</body>
+</html>

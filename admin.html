@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard - ShopSmart</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+   <nav>
+  <a href="admin.html" class="active">Admin Dashboard</a>
+  <a href="sales.html">Sales Report</a>
+  <a href="#" id="logout-button-nav">Logout</a>
+</nav>
+  <!-- Background Animation -->
+  <div class="background-animation">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="top-bar" style="justify-content: space-between;">
+      <h1>Admin Dashboard</h1>
+      <button id="show-add-form" class="primary-btn">Add New Product</button>
+    </div>
+    <div class="search-filter-container">
+      <input type="text" id="search-input" placeholder="Search products..." />
+      <select id="category-select">
+        <option value="">All Categories</option>
+      </select>
+      <button onclick="displayFilteredAdminProducts()">Search</button>
+    </div>
+    <h2>Manage Products</h2>
+    <div id="admin-products-container"></div>
+  </div>
+
+  <!-- Add Product Modal -->
+  <div id="add-product-modal" class="modal">
+    <div class="modal-content" style="max-width: 420px;">
+      <span class="modal-close" onclick="hideForms()">&times;</span>
+      <h2>Add New Product</h2>
+      <form id="add-product-form">
+        <input type="text" id="product-name" placeholder="Name" required />
+        <input type="text" id="product-description" placeholder="Description" />
+        <input type="number" id="product-price" placeholder="Price" step="0.01" required />
+        <input type="number" id="product-stock" placeholder="Stock" required />
+        <select id="product-category" required>
+          <option value="">Select Category</option>
+        </select>
+        <div id="add-new-category-container" style="display:none;">
+          <input type="text" id="new-category-name" placeholder="New Category Name" />
+          <button type="button" id="submit-new-category">Add Category</button>
+        </div>
+        <button type="submit">Add Product</button>
+        <button type="button" onclick="hideForms()">Back</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Product Modal -->
+  <div id="edit-product-modal" class="modal">
+    <div class="modal-content" style="max-width: 420px;">
+      <span class="modal-close" onclick="hideForms()">&times;</span>
+      <h2>Edit Product</h2>
+      <form id="edit-product-form">
+        <input type="hidden" id="edit-product-id" />
+        <input type="text" id="edit-product-name" placeholder="Name" required />
+        <input type="text" id="edit-product-description" placeholder="Description" />
+        <input type="number" id="edit-product-price" placeholder="Price" step="0.01" required />
+        <input type="number" id="edit-product-stock" placeholder="Stock" required />
+        <select id="edit-product-category" required>
+          <option value="">Select Category</option>
+        </select>
+        <div id="edit-new-category-container" style="display:none;">
+          <input type="text" id="edit-new-category-name" placeholder="New Category Name" />
+          <button type="button" id="edit-submit-new-category">Add Category</button>
+        </div>
+        <button type="submit">Update Product</button>
+        <button type="button" onclick="hideForms()">Back</button>
+      </form>
+    </div>
+  </div>
+  <div id="delete-confirm-modal" class="modal">
+  <div class="modal-content" style="max-width: 340px; text-align: center;">
+    <span class="modal-close" onclick="hideDeleteConfirm()">&times;</span>
+    <h3 style="color: var(--danger, #e74c3c); margin-bottom: 1rem;">Confirm Delete</h3>
+    <p>Are you sure you want to delete this product?</p>
+    <div style="margin-top: 1.5rem;">
+      <button id="confirm-delete-btn" style="background: var(--danger, #e74c3c); color: #fff; margin-right: 1rem;">Delete</button>
+      <button onclick="hideDeleteConfirm()">Cancel</button>
+    </div>
+  </div>
+</div>
+<div class="loading-container" id="global-loading">
+  <div class="spinner"></div>
+</div>
+  <script src="js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

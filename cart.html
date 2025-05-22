@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart - ShopSmart</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="cart.html" class="active">Cart</a>
+    
+  </nav>
+  <!-- Background Animation -->
+  <div class="background-animation">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+  <div class="container cart-container">
+  <h1>Your Cart</h1>
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th style="text-align:left;">Product</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="cart-table-body">
+        <!-- JS will render cart rows here -->
+      </tbody>
+    </table>
+  </div>
+  <div id="total-price-container">
+    <span id="total-price">Total: ₹0</span>
+  </div>
+  <button id="checkout-btn">Proceed to Checkout</button>
+</div>
+
+  <!-- Checkout Modal -->
+  <div id="customer-form-modal" class="modal">
+    <div class="modal-content" style="max-width: 400px;">
+      <span class="modal-close" onclick="closeCustomerForm()">&times;</span>
+      <h3 style="text-align:center; color: var(--primary); margin-bottom: 1rem;">Enter Your Details</h3>
+      <form id="customer-form">
+        <label for="customer-name">Name</label>
+        <input type="text" id="customer-name" required placeholder="Your Name">
+        <label for="customer-address">Address</label>
+        <input type="text" id="customer-address" required placeholder="Your Address">
+        <label for="customer-phone">Phone</label>
+        <input type="text" id="customer-phone" required placeholder="Your Phone">
+        <button type="submit" style="margin-top: 10px;">Submit</button>
+        <button type="button" id="cancel-btn-modal" style="background: var(--danger); color: #fff; margin-top: 10px;">Cancel</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Receipt Modal -->
+  <div id="receipt-modal" class="modal">
+    <div id="receipt-content" class="modal-content">
+      <h2 style="text-align:center; color: var(--primary);">Receipt</h2>
+      <div id="receipt-body"></div>
+      <button id="download-pdf-btn">Download PDF</button>
+      <button onclick="closeReceiptModal()">Close</button>
+    </div>
+  </div>
+
+  <div class="loading-container" id="global-loading">
+  <div class="spinner"></div>
+</div>
+  <script src="js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/cart.js"></script>
+</body>
+</html>

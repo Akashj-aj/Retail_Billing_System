@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sales Report - ShopSmart</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Background Animation -->
+  <div class="background-animation">
+    <ul class="circles">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+  </div>
+  <nav>
+    <a href="admin.html">Admin Dashboard</a>
+    <a href="sales.html" class="active">Sales Report</a>
+  </nav>
+  <div class="container">
+    <div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+      <h1>Sales Report</h1>
+      <!-- <button onclick="window.location.href='admin.html'">Back to Admin Dashboard</button> -->
+    </div>
+    <div class="filters" style="margin-bottom: 20px;">
+      <label for="from-date">From:</label>
+      <input type="date" id="from-date">
+      <label for="to-date">To:</label>
+      <input type="date" id="to-date">
+      <button onclick="applyDateFilter()">Filter</button>
+      <button onclick="resetDateFilter()">Reset</button>
+    </div>
+    <table id="sales-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Customer Name</th>
+          <th>Total Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="sales-body">
+        <!-- Sales rows will be inserted here -->
+      </tbody>
+    </table>
+  </div>
+  <div id="modal" class="modal">
+    <div class="modal-content" id="modal-content">
+      <span class="modal-close" onclick="closeModal()">✖</span>
+      <div class="modal-header">Purchase Details</div>
+      <!-- Modal details will be inserted here -->
+    </div>
+  </div>
+  <div class="loading-container" id="global-loading">
+    <div class="spinner"></div>
+  </div>
+  <script src="js/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/sales.js"></script>
+</body>
+</html>
